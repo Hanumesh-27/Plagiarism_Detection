@@ -1,30 +1,87 @@
-function checkPlagiarism() {
-    let text1 = document.getElementById("text1").value.toLowerCase();
-    let text2 = document.getElementById("text2").value.toLowerCase();
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
 
-    let words1 = text1.split(/\s+/);
-    let words2 = text2.split(/\s+/);
+.app {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+}
 
-    let matchCount = 0;
-    let matchedWords = new Set();
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    words2.forEach(word => {
-        if (words1.includes(word)) {
-            matchCount++;
-            matchedWords.add(word);
-        }
-    });
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #ff7eb3;
+    color: white;
+    cursor: pointer;
+}
 
-    let similarity = (matchCount / words2.length) * 100;
-    document.getElementById("percentage").innerText = similarity.toFixed(2) + "%";
+.controls {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+}
 
-    // Highlight matched words in text2
-    let output = words2.map(word => {
-        if (matchedWords.has(word)) {
-            return `<span class="highlight">${word}</span>`;
-        }
-        return word;
-    }).join(" ");
+.editor {
+    display: flex;
+    gap: 20px;
+}
 
-    document.getElementById("output").innerHTML = output;
+textarea {
+    width: 50%;
+    height: 200px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    resize: none;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.progress-container {
+    width: 100%;
+    height: 20px;
+    background: #ddd;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #00f260, #0575e6);
+    border-radius: 10px;
+}
+
+.highlight {
+    background: yellow;
+    color: black;
+    padding: 2px;
+}
+
+.output {
+    margin-top: 20px;
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* Dark Mode */
+.dark {
+    background: #121212;
+    color: #eee;
 }
