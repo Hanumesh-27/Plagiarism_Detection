@@ -2,25 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Plagiarism Detector</title>
+    <title>Advanced Plagiarism Detector</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-    <h1>Plagiarism Detection System</h1>
+<div class="app">
 
-    <div class="input-section">
-        <textarea id="text1" placeholder="Enter Original Text"></textarea>
-        <textarea id="text2" placeholder="Enter Suspected Text"></textarea>
+    <header>
+        <h1>🔍 Plagiarism Detector</h1>
+        <button onclick="toggleTheme()">🌙</button>
+    </header>
+
+    <div class="controls">
+        <input type="file" id="file1">
+        <input type="file" id="file2">
+        <button onclick="checkPlagiarism()">Check</button>
+        <button onclick="clearAll()">Clear</button>
     </div>
 
-    <button onclick="checkPlagiarism()">Check Similarity</button>
+    <div class="editor">
+        <textarea id="text1" placeholder="Original Text"></textarea>
+        <textarea id="text2" placeholder="Suspected Text"></textarea>
+    </div>
 
-    <div class="result">
-        <h2>Similarity: <span id="percentage">0%</span></h2>
+    <div class="stats">
+        <p>Words (Original): <span id="w1">0</span></p>
+        <p>Words (Suspected): <span id="w2">0</span></p>
+        <p>Matched Words: <span id="matchCount">0</span></p>
+    </div>
+
+    <div class="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <h2 id="percentage">0%</h2>
+
+    <div class="output">
+        <h3>Highlighted Matches</h3>
         <div id="output"></div>
     </div>
+
 </div>
 
 <script src="script.js"></script>
