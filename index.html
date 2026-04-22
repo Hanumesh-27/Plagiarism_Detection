@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plagiarism Detector</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Plagiarism Detection System</h1>
+
+    <div class="input-section">
+        <textarea id="text1" placeholder="Enter Original Text"></textarea>
+        <textarea id="text2" placeholder="Enter Suspected Text"></textarea>
+    </div>
+
+    <button onclick="checkPlagiarism()">Check Similarity</button>
+
+    <div class="result">
+        <h2>Similarity: <span id="percentage">0%</span></h2>
+        <div id="output"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
